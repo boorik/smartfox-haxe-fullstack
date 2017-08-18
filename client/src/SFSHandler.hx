@@ -49,13 +49,8 @@ class SFSHandler
 		#end
 		{
 			case Commands.TURN :
-				#if html5
-				currentTurn = extParams.name;
-				currentTurnId = extParams.id;
-				#else
 				currentTurn = extParams.getUtfString("name");
 				currentTurnId = extParams.getInt("id");
-				#end
 				trace('it is $currentTurn\'s turn');
 				if (onTurn != null)
 					onTurn(currentTurnId,currentTurn);
@@ -113,10 +108,11 @@ class SFSHandler
 		#end
 		config.debug = true;
 		config.host = "127.0.0.1";
-		config.port = #if web 8888 #else 9933 #end;
+		config.port = #if web 8080 #else 9933 #end;
 		config.zone = "Haxe";
 		#if html5
 		sfs = new com.smartfoxserver.v2.SmartFox(config);
+		sfs.logger.level = 0;
 		#else
 		sfs = new com.smartfoxserver.v2.SmartFox(true);
 		#end
@@ -153,6 +149,7 @@ class SFSHandler
 	
 	private function onConnection(e:SFSEvent):Void 
 	{
+		log("onConnection");
 		#if html5
 		if (e.success)
 		#else
@@ -161,7 +158,7 @@ class SFSHandler
 		{
 			log("Connected");
 			sfs.addEventListener(SFSEvent.LOGIN, onLogin #if html5 ,this #end);
-			sfs.send(new LoginRequest("", "", "Haxe"));
+			sfs.send(new LoginRequest(null,null,null, "Haxe"));
 		}else{
 			log("Not connected to internet");
 		}

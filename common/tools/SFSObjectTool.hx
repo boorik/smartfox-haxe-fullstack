@@ -8,7 +8,7 @@ import haxe.Unserializer;
  */
 class SFSObjectTool
 {
-	public static function instanceToSFSObject(obj:Dynamic):#if html5 Dynamic #else SFSObject#end
+	public static function instanceToSFSObject(obj:Dynamic):SFSObject
 	{
 		if (obj == null)
 			return null;
@@ -16,12 +16,8 @@ class SFSObjectTool
 			
 		var s = new Serializer();
 		s.serialize(obj);
-		#if html5 
-		var sfsObj = {obj:s.toString()};
-		#else
 		var sfsObj = new SFSObject();
 		sfsObj.putUtfString("obj", s.toString() );
-		#end
 		return sfsObj;
 	}
 	
@@ -31,7 +27,7 @@ class SFSObjectTool
 		if (sfsObj == null)
 			return null;
 			
-		var so = #if html5 sfsObj.obj #else sfsObj.getUtfString("obj")#end;
+		var so = sfsObj.getUtfString("obj");
 		if (so == null)
 			return null;
 		try{

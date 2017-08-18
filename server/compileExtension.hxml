@@ -9,4 +9,4 @@ HaxeExtension
 -java-lib lib/slf4j-log4j12-1.7.5.jar
 -java-lib lib/slf4j-api-1.7.5.jar
 
--cmd copy "G:\dev\projects\smartfox-haxe-fullstack\server\haxeextension\haxeextension-Debug.jar" "G:\dev\tools\SmartFoxServer_2X\SFS2X\extensions\HaxeExtension\"
+-cmd cp ~/projects/smartfox-haxe-fullstack/server/haxeextension/haxeextension-Debug.jar ~/SmartFoxServer_2X/SFS2X/extensions/HaxeExtension/
