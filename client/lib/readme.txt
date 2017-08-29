@@ -1,2 +1,2 @@
 Add javascript library in this directory
-SFS2X_API_JS.js
+sfs2x-api-1.7.6.js

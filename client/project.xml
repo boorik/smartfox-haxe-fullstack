@@ -18,7 +18,7 @@
 	<haxelib name="openfl" />
 	<haxelib name="actuate" />
 	<haxelib name="smartfox-haxe-client"/>
-	<dependency path="lib/sfs2x-api-1.7.5.js" if="html5" />
+	<dependency path="lib/sfs2x-api-1.7.6.js" if="html5" />
 	
 	<!-- assets -->
 	<icon path="assets/openfl.svg" />

@@ -171,11 +171,7 @@ class SFSHandler
 	
 	public function isAvailable():Bool
 	{
-		#if html5
-		return sfs.isConnected();
-		#else
 		return sfs.isConnected;
-		#end
 	}
 	
 	public function destroy():Void
